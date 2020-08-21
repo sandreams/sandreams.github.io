@@ -1,0 +1,384 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HTML入门笔记1 | Gridea</title>
+<link rel="shortcut icon" href="https://sandream.github.io/favicon.ico?v=1597979268293">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://sandream.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="HTML入门笔记1 | Gridea - Atom Feed" href="https://sandream.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="1.HTML是谁发明的
+
+1989年，伯纳斯-李在一份备忘录中提出一个基于互联网的超文本系统。他规定HTML并在1990年底    写出浏览器和服务器软件。
+—— 《维基百科》
+
+
+2.HTML 起手式
+    &lt;!DOCTYPE h..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://sandream.github.io">
+  <img class="avatar" src="https://sandream.github.io/images/avatar.png?v=1597979268293" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              HTML入门笔记1
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-08-21
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="1html是谁发明的">1.HTML是谁发明的</h1>
+<blockquote>
+<p>1989年，伯纳斯-李在一份备忘录中提出一个基于互联网的超文本系统。他规定HTML并在1990年底    写出浏览器和服务器软件。<br>
+—— 《维基百科》<br>
+<img src="https://s2.d2scdn.com/2020/08/21/FnepLzTz-HSR8YqQpYMlKOr2VBPA.webp" width = "300" height = "300" alt="李爵士" align=center /></p>
+</blockquote>
+<h1 id="2html-起手式">2.HTML 起手式</h1>
+<pre><code class="language-html">    &lt;!DOCTYPE html&gt;
+    &lt;!--文档类型--&gt;
+    &lt;html lang=&quot;zh-CN&quot;&gt;
+    &lt;!--html标签，lang最开始为en，zh-CN为简体中文--&gt;
+    &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot; /&gt;
+      &lt;!--文件字符编码 和文件编码类型保持一致--&gt;
+      &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+      &lt;title&gt;这是标题&lt;/title&gt;
+      &lt;!--网页标题--&gt;
+    &lt;/head&gt;
+    &lt;body&gt;&lt;/body&gt;
+   &lt;/html&gt;
+</code></pre>
+<h1 id="3常用的表章节的标签介绍">3.常用的表章节的标签介绍</h1>
+<pre><code class="language-html">=================================
+&lt;!--标题h1最高往下依次降低 使用要点: 避免跳过某级标题, 始终要从 &lt;h1&gt; 开始，接下来依次使用 &lt;h2&gt; 等等。--&gt;
+&lt;h1&gt; 一级标题 &lt;\h1&gt;
+&lt;h2&gt; 二级标题 &lt;\h2&gt;
+&lt;h3&gt; 三级标题 &lt;\h3&gt;
+&lt;h4&gt; 四级标题 &lt;\h4&gt;
+&lt;h5&gt; 五级标题 &lt;\h5&gt;
+ &lt;h6&gt;六级标题&lt;/h6&gt;
+=================================
+&lt;!--章节 一般来说，一个 &lt;section&gt; 应该出现在文档大纲中 section可以内嵌 类似章节1 章节1.1 章节1.1.1的关系 --&gt;
+&lt;section&gt; 章节 &lt;\section&gt;
+=================================
+&lt;!--文章--&gt;
+&lt;!--对于一段主题性的内容，则就适用 section，而假如这段内容可以脱离上下文，作为完整的独立存在的一段内容，则就适用 article--&gt;
+&lt;article&gt; 文章 &lt;\article&gt;
+=================================
+&lt;!--顶部内容，一般用于展示介绍性内容--&gt;
+&lt;header&gt; 这是广告位 &lt;\header&gt;
+=================================
+&lt;!--主要内容标签--&gt;
+&lt;main&gt; 主要内容 &lt;\main&gt;
+=================================
+&lt;!--旁支内容 表示一个和其余页面内容几乎无关的部分 比如版权声明--&gt;
+&lt;aside&gt; 旁支内容 &lt;\aside&gt;
+=================================
+&lt;!--区域划分 在语义上不表示任何特定类型的内容。然而，其可以将内容分组--&gt;
+&lt;!-- div到section到article语义从无到有 逐渐增强--&gt;
+&lt;div&gt; 区域划分 &lt;\div&gt;
+=================================
+
+</code></pre>
+<h1 id="4全局属性">4.全局属性</h1>
+<ul>
+<li>id<br>
+定义唯一标识符（ID），该标识符在整个文档中必须是唯一的。平时尽量使用class,少用id,当两个标签具有同一个id时不会报错。</li>
+</ul>
+<pre><code class="language-html">    &lt;div id=&quot;only-1&quot;&gt;&lt;/div&gt;
+    &lt;div id=&quot;only-2&quot;&gt;&lt;/div&gt;
+    &lt;!--id必须是唯一的--&gt;
+</code></pre>
+<ul>
+<li>class</li>
+</ul>
+<pre><code class="language-html">    &lt;button class=&quot;btn&quot;&gt;&lt;/button&gt;
+    &lt;button class=&quot;btn&quot;&gt;&lt;/button&gt;
+    &lt;!--class相同则为同一类--&gt;
+    &lt;button class=&quot;btn btn-large btn-active&quot;&gt;&lt;/button&gt;
+    &lt;!--一个标签能有多个class--&gt;
+</code></pre>
+<ul>
+<li>contenteditable<br>
+一个枚举属性（enumerated attribute），表示元素是否可被用户编辑。</li>
+</ul>
+<pre><code class="language-html">   &lt;div contenteditable=&quot;true&quot;&gt;
+          &lt;p&gt;元素可以被编辑&lt;/p&gt;
+   &lt;/div&gt;
+    &lt;div contenteditable=&quot;false&quot;&gt;
+          &lt;p&gt;元素不可以被编辑&lt;/p&gt;
+   &lt;/div&gt;
+</code></pre>
+<ul>
+<li>style<br>
+含要应用于元素的CSS样式声明。</li>
+</ul>
+<pre><code class="language-html">    &lt;div style=&quot;margin: 0;display: flex&quot;&gt;hello&lt;/div&gt;
+</code></pre>
+<ul>
+<li>
+<p>tabindex<br>
+用于网页tab切换网页元素。当值为-1时代表不能切换。正数时按数的大小从小到大切换。 值为0代表最后的切换位。</p>
+</li>
+<li>
+<p>title<br>
+包含表示与其所属元素相关信息的文本。 这些信息通常可以作为提示呈现给用户,但不是必须的。</p>
+</li>
+</ul>
+<pre><code class="language-html">    &lt;p&gt;Web开发三大主要技术分别为
+      &lt;abbr title=&quot;Hypertext Markup Language&quot;&gt;HTML&lt;/abbr&gt;,
+      &lt;abbr title=&quot;Cascading Stylesheets&quot;&gt;CSS&lt;/abbr&gt;, and
+      JavaScript.
+   &lt;/p&gt;
+</code></pre>
+<h1 id="5常见的内容标签">5.常见的内容标签</h1>
+<ul>
+<li>a<br>
+可以创建通向其他网页、文件、同一页面内的位置、电子邮件地址或任何其他 URL 的超链接。</li>
+</ul>
+<pre><code class="language-html">     &lt;p&gt;you can search what you want at: &lt;/p&gt;
+     &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;https://www.baidu.com&quot;&gt;Baidu&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;https://www.google.com&quot;&gt;Google&lt;/a&gt;&lt;/li&gt;
+     &lt;/ul&gt;
+</code></pre>
+<ul>
+<li>ol有序列表<br>
+ordered list</li>
+</ul>
+<pre><code class="language-html">&lt;ol&gt;
+    &lt;li&gt;王力宏&lt;/li&gt;
+    &lt;li&gt;孙燕姿&lt;/li&gt;
+    &lt;li&gt;张学友&lt;/li&gt;
+&lt;/pl&gt;
+</code></pre>
+<p>输出的结果如下</p>
+<pre><code> 1.王力宏
+ 2.孙燕姿
+ 3.张学友
+</code></pre>
+<ul>
+<li>
+<p>ul无序列表<br>
+unordered list<br>
+用法同有序列表，只是1.2.3变为· · ·</p>
+</li>
+<li>
+<p>dl+dt+dd<br>
+description list(术语列表)+term（术语）+detail（解释）用法如下：</p>
+</li>
+</ul>
+<pre><code class="language-html">   &lt;dl class= &quot;job&quot;&gt;
+       &lt;dt&gt;前端工程师&lt;/dt&gt;
+       &lt;dd&gt;1.会前端2.能背锅&lt;/dd&gt;
+       &lt;dt&gt;后端工程师&lt;/dt&gt;
+       &lt;dd&gt;1.会后端2.能背锅&lt;/dd&gt;
+       &lt;dt&gt;全栈工程师&lt;/dt&gt;
+       &lt;dd&gt;1.两边都沾一点2.也要能背锅&lt;/dd&gt;
+    &lt;/dl&gt;
+</code></pre>
+<pre><code>    前端工程师
+       1.会前端2.能背锅
+    后端工程师
+       1.会后端2.能背锅
+    全栈工程师
+       1.两边都沾一点2.也要能背锅
+</code></pre>
+<ul>
+<li>
+<p>em和strong<br>
+em: emphasis的意思，用于语气强调，强调部分会以以斜体显示<br>
+strong: strong也用于强调，强调部分会以粗体显示</p>
+</li>
+<li>
+<p>code<br>
+用于突出代码内容，会以等宽字体显示,若有换行，则需要搭配pre</p>
+</li>
+</ul>
+<pre><code class="language-html">    &lt;p&gt;这里是文本 &lt;code&gt;不换行的代码内容&lt;/code&gt; 这里是文本 &lt;/p&gt;
+    &lt;p&gt;这里是文本 &lt;pre&gt;&lt;code&gt;    换行的
+ 代码内容&lt;/code&gt; &lt;/pre&gt;这里是文本 &lt;/p&gt;
+     
+</code></pre>
+<ul>
+<li>pre<br>
+在该元素中的文本通常按照原文件中的编排，以等宽字体的形式展现出来</li>
+</ul>
+<pre><code class="language-html">     &lt;p&gt;  HTML 代码里的多处空格、回车、tab 等内容，默认会被转化为一个空格   &lt;/p&gt;
+     &lt;p&gt; &lt;pre&gt;带有pre标签的文本会按照原文件的编排显示出来&lt;/pre&gt; &lt;/p&gt;
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#1html%E6%98%AF%E8%B0%81%E5%8F%91%E6%98%8E%E7%9A%84">1.HTML是谁发明的</a></li>
+<li><a href="#2html-%E8%B5%B7%E6%89%8B%E5%BC%8F">2.HTML 起手式</a></li>
+<li><a href="#3%E5%B8%B8%E7%94%A8%E7%9A%84%E8%A1%A8%E7%AB%A0%E8%8A%82%E7%9A%84%E6%A0%87%E7%AD%BE%E4%BB%8B%E7%BB%8D">3.常用的表章节的标签介绍</a></li>
+<li><a href="#4%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7">4.全局属性</a></li>
+<li><a href="#5%E5%B8%B8%E8%A7%81%E7%9A%84%E5%86%85%E5%AE%B9%E6%A0%87%E7%AD%BE">5.常见的内容标签</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://sandream.github.io/post/hello-gridea/">
+              <h3 class="post-title">
+                Hello Gridea
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '7bbbf6ca49ae4e48559c',
+    clientSecret: '60037ef339f942c753735a1403d4fd38c13a6d29',
+    repo: 'sandream.github.io',
+    owner: 'SanDream94',
+    admin: ['SanDream94'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://sandream.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
