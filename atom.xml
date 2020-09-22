@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sandreams.github.io</id>
     <title>Gridea</title>
-    <updated>2020-08-21T03:35:28.524Z</updated>
+    <updated>2020-09-22T18:18:30.293Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sandreams.github.io"/>
     <link rel="self" href="https://sandreams.github.io/atom.xml"/>
@@ -10,6 +10,191 @@
     <logo>https://sandreams.github.io/images/avatar.png</logo>
     <icon>https://sandreams.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[HTML常用标签]]></title>
+        <id>https://sandreams.github.io/post/html-chang-yong-biao-qian/</id>
+        <link href="https://sandreams.github.io/post/html-chang-yong-biao-qian/">
+        </link>
+        <updated>2020-09-02T16:56:54.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1a-标签的用法">1.a 标签的用法</h2>
+<h3 id="属性">属性</h3>
+<ul>
+<li>
+<p>href<br>
+可以是网址 带协议和不带协议 ；可以是路径 相对路径和绝对路径 ；可以是伪协议 比如<code>&lt;a href=&quot;javascript:;&quot;&gt;</code>表示不执行任何操作</p>
+</li>
+<li>
+<p>target<br>
+内置名字有: _blank 表示在新窗口打开;_self 表示当前页面加载,默认为该值; _parent 加载响应到当前框架的 HTML4 父框架或当前的 HTML5 浏览上下文的父浏览上下文。如果没有 parent 框架或者浏览上下文，此选项的行为方式与 _self 相同; _top 表示在当前框架最顶层的窗口打开。如果没有 parent 框架或者浏览上下文，此选项的行为方式与 _self 相同.</p>
+</li>
+<li>
+<p>download:<br>
+当我们希望点击“下载”链接下载图片而不是浏览，直接增加一个 download 属性就可以</p>
+<pre><code class="language-html">&lt;a href=&quot;large.jpg&quot; download=&quot;filename&quot;&gt;下载&lt;/a&gt;
+</code></pre>
+<p>filename 为指定的文件名</p>
+</li>
+<li>
+<p>rel=noopener:<br>
+这是一个很重要的且常用的 rel 属性值，与安全相关。<br>
+如果我们的链接元素没有设置 noopener，则在新窗口打开这个链接的时候，则这个新窗口页面可以通过 window.opener 获取来源页面的窗体对象，于是可以改变原页面 URL 地址之类的事情。<br>
+因此，如果网站上有外部的链接地址，一定要记得加上 noopener。</p>
+</li>
+</ul>
+<h3 id="关于路径">关于路径</h3>
+<ol>
+<li>绝对路径: /a/b/c,'/'代表根目录,在哪里开启的服务网站的根目录就在那里</li>
+<li>相对路径: a/b/c 或./a/b/c 相对于当前目录的路径 如果当前目录在 a,需要去访问 c.html 则路径为 b/c.html 或者./b/c.html</li>
+</ol>
+<h2 id="2img-标签的用法">2.img 标签的用法</h2>
+<ul>
+<li>作用
+<ul>
+<li>发出 get 请求，展示一张图片</li>
+</ul>
+</li>
+<li>属性
+<ul>
+<li>alt(alternative)<br>
+图片加载失败后提示的文字</li>
+<li>height<br>
+指定图片固定高度，如果只写 height，图片宽度会保持原有比例下自适应</li>
+<li>width<br>
+指定图片固定宽度，如果只写 width，图片高度会保持原有比例下自适应</li>
+<li>src<br>
+图片路径 可以为绝对地址或相对地址</li>
+</ul>
+</li>
+<li>事件
+<ul>
+<li>onload<br>
+图片加载成功触发的事件</li>
+<li>onerror<br>
+图片加载失败触发的事件</li>
+<li>可以通过事件返回的结果来判断图片是否加载成功</li>
+<li>可以再 onerror 时更改 src 的值替换备用图片</li>
+</ul>
+</li>
+<li>响应式<br>
+设置 max-width: 100%能在手机上自适应</li>
+</ul>
+<h2 id="3table-标签的用法">3.table 标签的用法</h2>
+<h3 id="相关标签和说明">相关标签和说明</h3>
+<ul>
+<li>
+<p>thead: 定义了一组定义表格的列头的行。</p>
+</li>
+<li>
+<p>tbody(table body): 封装了一组 tr 元素，来组成表的身体</p>
+</li>
+<li>
+<p>tr(table row): 代表表格中的一行。</p>
+</li>
+<li>
+<p>tfoot(table foot): 表示表格中各列的汇总行。</p>
+</li>
+<li>
+<p>td(table data):表示一个包含数据的表格单元格。</p>
+</li>
+<li>
+<p>th(table header cell): 表示表格内的表头单元格。</p>
+</li>
+<li>
+<p>下图是一个简单的表格元素</p>
+<pre><code class="language-html">&lt;p&gt;Table with thead, tfoot, and tbody&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Header content 1&lt;/th&gt;
+      &lt;th&gt;Header content 2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Footer content 1&lt;/td&gt;
+      &lt;td&gt;Footer content 2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Body content 1&lt;/td&gt;
+      &lt;td&gt;Body content 2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+</li>
+</ul>
+<p>Table with thead, tfoot, and tbody</p>
+<table>
+  <thead>
+    <tr>
+      <th>Header content 1</th>
+      <th>Header content 2</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td>Footer content 1</td>
+      <td>Footer content 2</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>Body content 1</td>
+      <td>Body content 2</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="相关的样式">相关的样式</h3>
+<ul>
+<li>table-layout
+<ul>
+<li>auto<br>
+自动计算表格单元格的宽度</li>
+<li>fixed<br>
+表格和列的宽度通过表格的宽度来设置</li>
+</ul>
+</li>
+<li>border-collapse
+<ul>
+<li>collapse<br>
+相邻的单元格共用同一条边框</li>
+<li>separate<br>
+默认值。每个单元格拥有独立的边框</li>
+</ul>
+</li>
+<li>border-spacing<br>
+该属性只适用于 border-collapse 值是 separate 的时候。表示两个相邻单元格边框的间距</li>
+</ul>
+<h2 id="4form-标签的用法">4.form 标签的用法</h2>
+<ul>
+<li>作用<br>
+发送 post 或 get 请求，然后<font color='red'>刷新</font>页面,用于向 Web 服务器提交信息</li>
+<li>属性
+<ul>
+<li>action<br>
+处理表单提交的 URL。这个值可被 <code>&lt;button&gt;、&lt;input type=&quot;submit&quot;&gt; 或 &lt;input type=&quot;image&quot;&gt;</code> 元素上的 formaction 属性覆盖。</li>
+<li>enctype<br>
+提交给服务器的 MIME 类型</li>
+<li>method<br>
+post 数据会放在请求体 get 请求会附加到 action 属性的 URL 里</li>
+<li>target<br>
+属性详见上文 a 标签 target 部分，表示在提交表单之后，在哪里显示响应信息。</li>
+</ul>
+</li>
+<li>事件
+<ul>
+<li>onsubmit</li>
+</ul>
+</li>
+<li>input type=&quot;submit&quot; 和 button type=&quot;submit&quot;区别<br>
+button 里还可以包含其他标签而 input 里面只能放纯文本</li>
+</ul>
+<h2 id="5感想">5.感想</h2>
+<p>这堂课程学习了比较常用 html 标签的用法。这些 html 标签总体来说离不开这三样东西 作用、属性、事件,以后学习其他标签的时候也可以从这三部分着手。另外，在写博客的时候我除了查 MDN 还参考了一些大佬的博客，从中学到了不少有趣的知识，通过生动的例子加深了我对这块内容的理解。所以，保持写博客的习惯在今后学习中是必不可少的。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[HTML入门笔记1]]></title>
         <id>https://sandreams.github.io/post/html-ru-men-bi-ji-1/</id>
@@ -196,38 +381,6 @@ strong: strong也用于强调，强调部分会以粗体显示</p>
 <pre><code class="language-html">     &lt;p&gt;  HTML 代码里的多处空格、回车、tab 等内容，默认会被转化为一个空格   &lt;/p&gt;
      &lt;p&gt; &lt;pre&gt;带有pre标签的文本会按照原文件的编排显示出来&lt;/pre&gt; &lt;/p&gt;
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://sandreams.github.io/post/hello-gridea/</id>
-        <link href="https://sandreams.github.io/post/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
 ]]></content>
     </entry>
 </feed>
