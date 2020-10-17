@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>浅析URl | Gridea</title>
-<link rel="shortcut icon" href="https://sandreams.github.io/favicon.ico?v=1602969500538">
+<link rel="shortcut icon" href="https://sandreams.github.io/favicon.ico?v=1602969827170">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://sandreams.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="浅析URl | Gridea - Atom Feed" href="https://sandreams.github.io/atom.xml">
@@ -24,7 +24,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://sandreams.github.io">
-  <img class="avatar" src="https://sandreams.github.io/images/avatar.png?v=1602969500538" alt="">
+  <img class="avatar" src="https://sandreams.github.io/images/avatar.png?v=1602969827170" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -149,41 +149,27 @@ GET 模式的窗体参数，以“?”字符为起点，每个参数以“&amp;�
 </ul>
 <h4 id="相关命令">相关命令</h4>
 <ul>
-<li>
-<p>dig</p>
+<li>dig</li>
+</ul>
 <pre><code>dig [options] FQDN [@server]
 </code></pre>
 <p>这里不做深入探讨</p>
-</li>
-<li>
-<p>host</p>
+<ul>
+<li>host</li>
+</ul>
 <pre><code>Usage: host [-aCdlriTwv] [-c class] [-N ndots] [-t 类型 ] [-W time] [-R number] [-m flag] hostname [dnsserver]
 </code></pre>
 <p>选项:</p>
 <ul>
-<li>
-<p>-a : 显示详细的 DNS 信息</p>
-</li>
-<li>
-<p>-c&lt;类型&gt; : 指定查询类型，默认值为“IN”</p>
-</li>
-<li>
-<p>-C : 查询指定主机的完整的 SOA 记录</p>
-</li>
-<li>
-<p>-r : 在查询域名时，不使用递归的查询方式</p>
-</li>
-<li>
-<p>-t&lt;类型&gt; : 指定查询的域名信息类型</p>
-</li>
-<li>
-<p>-v : 显示指令执行的详细信息</p>
-</li>
-<li>
-<p>-w : 如果域名系统服务器没有给出应答信息，则总是等待，直到域名服务器给出应答</p>
-</li>
-<li>
-<p>-W&lt;时间&gt; : 指定域名查询最长时间，如果在指定时间内域名服务器没有给出应答信息，则退出指令</p>
+<li>-a : 显示详细的 DNS 信息</li>
+<li>-c&lt;类型&gt; : 指定查询类型，默认值为“IN”</li>
+<li>-C : 查询指定主机的完整的 SOA 记录</li>
+<li>-r : 在查询域名时，不使用递归的查询方式</li>
+<li>-t&lt;类型&gt; : 指定查询的域名信息类型</li>
+<li>-v : 显示指令执行的详细信息</li>
+<li>-w : 如果域名系统服务器没有给出应答信息，则总是等待，直到域名服务器给出应答</li>
+<li>-W&lt;时间&gt; : 指定域名查询最长时间，如果在指定时间内域名服务器没有给出应答信息，则退出指令</li>
+</ul>
 <pre><code># host -a www.baidu.com
 
     Trying &quot;www.baidu.com&quot;
@@ -198,13 +184,13 @@ GET 模式的窗体参数，以“?”字符为起点，每个参数以“&amp;�
     www.a.shifen.com.	551	IN	A	115.239.210.27
     www.a.shifen.com.	551	IN	A	115.239.211.112
 </code></pre>
-</li>
-</ul>
-</li>
+<ul>
 <li>
 <p>nslookup<br>
 用于查询域名系统（DNS）以获得域名或 IP 地址映射或其他 DNS 记录</p>
 <p><font color="#666666" size=2>nslookup [ -option ] [名称| -] [服务器]<font></p>
+</li>
+</ul>
 <pre><code>λ nslookup www.google.com
     服务器:  Hiwifi.lan
     Address:  192.168.199.1
@@ -218,8 +204,6 @@ GET 模式的窗体参数，以“?”字符为起点，每个参数以“&amp;�
     服务器:  dns.google
     Address:  8.8.8.8
 </code></pre>
-</li>
-</ul>
 <h3 id="ip-的作用与-ping-命令">IP 的作用与 ping 命令</h3>
 <h4 id="作用">作用</h4>
 <p><strong>网际协议</strong>（英语：Internet Protocol，缩写：IP；也称互联网协议）是用于分组交换数据网络的一种协议。</p>
