@@ -1,0 +1,389 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>浅析URl | Gridea</title>
+<link rel="shortcut icon" href="https://sandreams.github.io/favicon.ico?v=1602969500538">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://sandreams.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="浅析URl | Gridea - Atom Feed" href="https://sandreams.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="URL 包含那几部分，每部分分别有什么作用
+简介
+
+统一资源定位符（英语：Uniform Resource Locator，缩写：URL；或称统一资源定位器、定位地址、URL 地址[1]，俗称网页地址或简称网址）是因特网上标准的资源的地址（..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://sandreams.github.io">
+  <img class="avatar" src="https://sandreams.github.io/images/avatar.png?v=1602969500538" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              浅析URl
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-10-18
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="url-包含那几部分每部分分别有什么作用">URL 包含那几部分，每部分分别有什么作用</h3>
+<h4 id="简介">简介</h4>
+<blockquote>
+<p>统一资源定位符（英语：Uniform Resource Locator，缩写：URL；或称统一资源定位器、定位地址、URL 地址[1]，俗称网页地址或简称网址）是因特网上标准的资源的地址（Address），如同在网络上的门牌。它最初是由蒂姆·伯纳斯-李发明用来作为万维网的地址，现在它已经被万维网联盟编制为因特网标准 RFC 1738</p>
+</blockquote>
+<h4 id="组成">组成</h4>
+<p>统一资源定位符的标准格式如下：<br>
+[协议类型] : // [服务器地址]:[端口号]/[资源层级 UNIX 文件路径][文件名]?[查询]#[片段 ID]<br>
+其中 [端口号]、[查询]、[片段 ID]都属于选填项</p>
+<blockquote>
+<p>以https://zh.wikipedia.org:443/w/index.php?title=Special:随机页面为&gt;例, 其中：</p>
+<ol>
+<li>https，是协议；</li>
+<li>zh.wikipedia.org，是服务器；</li>
+<li>443，是服务器上的网络端口号；</li>
+<li>/w/index.php，是路径；</li>
+<li>?title=Special:随机页面，是询问。</li>
+</ol>
+</blockquote>
+<h4 id="各部分作用">各部分作用</h4>
+<ul>
+<li>协议(Protocol):<br>
+作为客户端（用户）和服务端（网站）之间请求和应答的标准<br>
+目前使用比较广泛的协议类型:
+<blockquote>
+<p>ftp File Transfer protocol（文件传输协议）<br>
+http Hypertext Transfer Protocol（超文本传输协议）<br>
+gopher The Gopher protocol（Gopher 协议）<br>
+mailto Electronic mail address（电子邮件地址）<br>
+news USENET news（USENET 新闻）<br>
+nntp USENET news using NNTP access（使用 NNTP 访问的 USENET 新闻）<br>
+telnet Reference to interactive sessions（交互式会话访问）<br>
+wais Wide Area Information Servers（广域信息服务系统）<br>
+file Host-specific file names（特殊主机文件名）<br>
+prospero Prospero Directory Service(prospero 目录服务)</p>
+</blockquote>
+</li>
+<li>域名(Domain):<br>
+是互联网基础架构的关键部分。他们为互联网上任何可用的网页服务器提供了方便人类理解的地址, 用来表示 ip 映射的字符串。</li>
+<li>IP(Internet Protocol):<br>
+一个专门的地址，通过 IP 地址就可以访问到每一台主机。</li>
+<li>端口号(port):<br>
+一台机器可以提供很多服务，每一个服务占用一个号码，这个号码就是端口号。80 为常用的服务器端口、443 为常用 https 服务器端口。</li>
+<li>路径<br>
+以“/”字符区别路径中的每一个目录名称</li>
+<li>查询<br>
+GET 模式的窗体参数，以“?”字符为起点，每个参数以“&amp;”隔开，再以“=”分开参数名称与资料，通常以 UTF8 的 URL 编码，避开字符冲突的问题</li>
+<li>片段(锚点)<br>
+以“#”字符为起点</li>
+</ul>
+<h3 id="dns-的作用和相关命令">DNS 的作用和相关命令</h3>
+<h4 id="dnsdomain-name-system-域名系统">DNS(Domain Name System 域名系统)</h4>
+<ul>
+<li>作用<br>
+将域名和 IP 地址相互映射并保存在一个分布式数据库，能够使人更方便地访问互联网。用户键入的域名字符串能通过 dns 服务器解析成 ip 地址。人们也不用再去记特别难记的 ip 地址。</li>
+</ul>
+<h4 id="相关命令">相关命令</h4>
+<ul>
+<li>
+<p>dig</p>
+<pre><code>dig [options] FQDN [@server]
+</code></pre>
+<p>这里不做深入探讨</p>
+</li>
+<li>
+<p>host</p>
+<pre><code>Usage: host [-aCdlriTwv] [-c class] [-N ndots] [-t 类型 ] [-W time] [-R number] [-m flag] hostname [dnsserver]
+</code></pre>
+<p>选项:</p>
+<ul>
+<li>
+<p>-a : 显示详细的 DNS 信息</p>
+</li>
+<li>
+<p>-c&lt;类型&gt; : 指定查询类型，默认值为“IN”</p>
+</li>
+<li>
+<p>-C : 查询指定主机的完整的 SOA 记录</p>
+</li>
+<li>
+<p>-r : 在查询域名时，不使用递归的查询方式</p>
+</li>
+<li>
+<p>-t&lt;类型&gt; : 指定查询的域名信息类型</p>
+</li>
+<li>
+<p>-v : 显示指令执行的详细信息</p>
+</li>
+<li>
+<p>-w : 如果域名系统服务器没有给出应答信息，则总是等待，直到域名服务器给出应答</p>
+</li>
+<li>
+<p>-W&lt;时间&gt; : 指定域名查询最长时间，如果在指定时间内域名服务器没有给出应答信息，则退出指令</p>
+<pre><code># host -a www.baidu.com
+
+    Trying &quot;www.baidu.com&quot;
+    ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 14589
+    ;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 0
+
+    ;; QUESTION SECTION:
+    ;www.baidu.com.			IN	ANY
+
+    ;; ANSWER SECTION:
+    www.baidu.com.		29	IN	CNAME	www.a.shifen.com.
+    www.a.shifen.com.	551	IN	A	115.239.210.27
+    www.a.shifen.com.	551	IN	A	115.239.211.112
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>nslookup<br>
+用于查询域名系统（DNS）以获得域名或 IP 地址映射或其他 DNS 记录</p>
+<p><font color="#666666" size=2>nslookup [ -option ] [名称| -] [服务器]<font></p>
+<pre><code>λ nslookup www.google.com
+    服务器:  Hiwifi.lan
+    Address:  192.168.199.1
+
+    非权威应答:
+    名称:    www.google.com
+    Addresses:  2001::42dc:955a
+            104.244.46.211
+
+λ nslookup -type=NS google.com 8.8.8.8
+    服务器:  dns.google
+    Address:  8.8.8.8
+</code></pre>
+</li>
+</ul>
+<h3 id="ip-的作用与-ping-命令">IP 的作用与 ping 命令</h3>
+<h4 id="作用">作用</h4>
+<p><strong>网际协议</strong>（英语：Internet Protocol，缩写：IP；也称互联网协议）是用于分组交换数据网络的一种协议。</p>
+<p>IP 是在 TCP/IP 协议族中网络层的主要协议，任务仅仅是根据源主机和目的主机的地址来传送数据。为此目的，IP 定义了寻址方法和数据报的封装结构。第一个架构的主要版本为 IPv4，目前仍然是广泛使用的互联网协议，尽管世界各地正在积极部署 IPv6。</p>
+<h4 id="ping-命令">Ping 命令</h4>
+<p>ping 用来测试数据包能否透过 IP 协议到达特定主机</p>
+<pre><code>λ ping xiedaimala.com
+
+正在 Ping xiedaimala.com [114.215.175.213] 具有 32 字节的数据:
+来自 114.215.175.213 的回复: 字节=32 时间=14ms TTL=52
+来自 114.215.175.213 的回复: 字节=32 时间=16ms TTL=52
+来自 114.215.175.213 的回复: 字节=32 时间=16ms TTL=52
+来自 114.215.175.213 的回复: 字节=32 时间=15ms TTL=52
+
+114.215.175.213 的 Ping 统计信息:
+    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 (0% 丢失)，
+往返行程的估计时间(以毫秒为单位):
+    最短 = 14ms，最长 = 16ms，平均 = 15ms
+</code></pre>
+<h3 id="域名是什么分别有哪几类域名">域名是什么,分别有哪几类域名</h3>
+<p>域名（Domain names）是互联网基础架构的关键部分。它们为互联网上任何可用的网页服务器提供了方便人类理解的地址</p>
+<p>域名层次：</p>
+<ol>
+<li>
+<p>顶级域名：是域名中最高的一级，每个域名都以顶级域名结尾。顶级域名分为两类：国家及地区双字代码顶级域（国家和地区顶级域）和通用顶级域。<br>
+前者基于 ISO-3166 规定的国家/地区双字缩写代码；后者代表了一组名称和多个组织，包括 .gov（政府），.edu（教育机构），.com（商业，现在成为全球注册量最大、最通用的域名），.mil（军事），.org（非营利组织），.net（网络，当时被定位为网络基础服务提供商）和.int（国际组织）等</p>
+</li>
+<li>
+<p>子域名（二级域名）:子域名将顶级域名进一步细分。域名层次结构中，顶级域名下面是二级域名，它位于顶级域名的左侧;二级域名下面是三级域名，它位于二级域名的左侧。</p>
+</li>
+</ol>
+<p>For example:xiedaimala.com 是二级域名，俗称一级域名； www.xiedaimala.com 是三级域名，俗称二级。</p>
+<blockquote>
+<p>引用:<br>
+https://tools.ietf.org/html/rfc1738<br>
+https://zh.wikipedia.org/wiki/%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E5%AE%9A%E4%BD%8D%E7%AC%A6</p>
+</blockquote>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#url-%E5%8C%85%E5%90%AB%E9%82%A3%E5%87%A0%E9%83%A8%E5%88%86%E6%AF%8F%E9%83%A8%E5%88%86%E5%88%86%E5%88%AB%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8">URL 包含那几部分，每部分分别有什么作用</a>
+<ul>
+<li><a href="#%E7%AE%80%E4%BB%8B">简介</a></li>
+<li><a href="#%E7%BB%84%E6%88%90">组成</a></li>
+<li><a href="#%E5%90%84%E9%83%A8%E5%88%86%E4%BD%9C%E7%94%A8">各部分作用</a></li>
+</ul>
+</li>
+<li><a href="#dns-%E7%9A%84%E4%BD%9C%E7%94%A8%E5%92%8C%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4">DNS 的作用和相关命令</a>
+<ul>
+<li><a href="#dnsdomain-name-system-%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F">DNS(Domain Name System 域名系统)</a></li>
+<li><a href="#%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4">相关命令</a></li>
+</ul>
+</li>
+<li><a href="#ip-%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E-ping-%E5%91%BD%E4%BB%A4">IP 的作用与 ping 命令</a>
+<ul>
+<li><a href="#%E4%BD%9C%E7%94%A8">作用</a></li>
+<li><a href="#ping-%E5%91%BD%E4%BB%A4">Ping 命令</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9F%9F%E5%90%8D%E6%98%AF%E4%BB%80%E4%B9%88%E5%88%86%E5%88%AB%E6%9C%89%E5%93%AA%E5%87%A0%E7%B1%BB%E5%9F%9F%E5%90%8D">域名是什么,分别有哪几类域名</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://sandreams.github.io/post/css-zhi-shi-zong-jie/">
+              <h3 class="post-title">
+                CSS知识总结
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'e59b35a4d4bdcee7653c',
+    clientSecret: '643e1fb1f9c934abad381775d7b3cfdee1820134',
+    repo: 'sandreams.github.io',
+    owner: 'sandreams',
+    admin: ['sandreams'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://sandreams.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
