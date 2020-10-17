@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sandreams.github.io</id>
     <title>Gridea</title>
-    <updated>2020-09-22T18:18:30.293Z</updated>
+    <updated>2020-10-17T09:18:47.717Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sandreams.github.io"/>
     <link rel="self" href="https://sandreams.github.io/atom.xml"/>
@@ -10,6 +10,210 @@
     <logo>https://sandreams.github.io/images/avatar.png</logo>
     <icon>https://sandreams.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[CSS知识总结]]></title>
+        <id>https://sandreams.github.io/post/css-zhi-shi-zong-jie/</id>
+        <link href="https://sandreams.github.io/post/css-zhi-shi-zong-jie/">
+        </link>
+        <updated>2020-10-17T09:17:55.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="font-size5浏览器渲染原理font"><font size=5>浏览器渲染原理</font></h2>
+<h4 id="步骤">步骤</h4>
+<pre><code>  1. 根据HTML构建HTML树(DOM)
+  2. 根据CSS构建CSS树(CSSDOM)
+  3. 将两棵树合并成一颗渲染树(render tree)
+  4. Layout布局(文档流、盒模型、计算大小和位置)
+  5. Paint绘制(把边框颜色、文字颜色、阴影等绘出来)
+  6. Compose合成(根据层叠关系展示画面)
+</code></pre>
+<h4 id="三种不同渲染方式">三种不同渲染方式</h4>
+<p><img src="https://i.imgur.com/ZyAjvkn.png" alt="172cd0feecff073" loading="lazy"><br>
+在 Blink 内核下的 3 种场景举例:</p>
+<ol>
+<li>Layout: 改变 align-content 的值、改变 margin 的值 会重新计算位置</li>
+<li>Paint: 改变 background-color 不改变位置,但改变了视觉属性所以会重新绘制</li>
+<li>Compose: 改变 transform 的值,</li>
+</ol>
+<h2 id="font-size5css-定位font"><font size=5>CSS 定位</font></h2>
+<p>定位通过 position 属性进行创建,一共分为 5 个值:</p>
+<ul>
+<li>static 默认值，待在文档流里</li>
+<li>relative 相对定位，升起来，但不脱离文档流</li>
+<li>absolute 绝对定位，定位基准是祖先元素里的非 static，最近的定位元素</li>
+<li>fixed 固定定位，定位基准是 viewport 视口</li>
+<li>sticky 粘滞定位，在移动端存在太多 bug，不做过多介绍</li>
+</ul>
+<h4 id="positionrelative">position:relative</h4>
+<p>使用场景:</p>
+<ol>
+<li>用于约束 absolute 元素</li>
+<li>有 absolute 元素时用其控制层级关系</li>
+<li>并未脱离文档流</li>
+</ol>
+<p>最小化影响原则:<br>
+relative 定位的元素里的子元素越少越好,避免后期维护困难,如下所示</p>
+<pre><code class="language-html">&lt;!-- 未遵循最小化原则的代码 --&gt;
+&lt;div style=&quot;position: relative&quot;&gt;
+  &lt;img src=&quot;icon.png&quot; style=&quot;position: absolute;top:0;right:0&quot; /&gt;
+  &lt;p&gt;内容1&lt;/p&gt;
+  &lt;p&gt;内容2&lt;/p&gt;
+  &lt;p&gt;内容3&lt;/p&gt;
+  ...
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-html">&lt;!-- 遵循最小化原则的代码 --&gt;
+&lt;div&gt;
+  &lt;div style=&quot;position: relative&quot;&gt;
+    &lt;img src=&quot;icon.png&quot; style=&quot;position: absolute;top:0;right:0&quot; /&gt;
+  &lt;/div&gt;
+  &lt;p&gt;内容1&lt;/p&gt;
+  &lt;p&gt;内容2&lt;/p&gt;
+  &lt;p&gt;内容3&lt;/p&gt;
+  ...
+&lt;/div&gt;
+</code></pre>
+<h4 id="positionabsolute">position:absolute</h4>
+<p>特性:</p>
+<ol>
+<li>无依赖定位</li>
+<li>包裹性</li>
+<li>块状化</li>
+<li>相对特性</li>
+</ol>
+<p>使用场景:</p>
+<ol>
+<li>各类图标定位</li>
+<li>表单校验提示错误</li>
+</ol>
+<ul>
+<li>善用 left: 100%</li>
+<li>善用 left: 50% 加负 margin</li>
+</ul>
+<h4 id="positionfixed">position:fixed</h4>
+<p>使用场景如下：</p>
+<ol>
+<li>广告</li>
+<li>回到顶部按钮</li>
+</ol>
+<p>需配合 z-index 使用</p>
+<ul>
+<li>只要元素定位了，自动跑到所有东西最上层。默认 z-index = 0</li>
+<li>所有定位元素会以文字为基准，第一层为 0 ，以此类推</li>
+<li>如果是 -1 ，比背景还要低，可以无限往后，但是不能超过默认的层叠上下文</li>
+</ul>
+<h4 id="层叠上下文">层叠上下文</h4>
+<ul>
+<li>比喻<br>
+每个层叠上下文就是一个新的小世界(作用域)<br>
+这个小世界里面的 z-index 跟外界无关<br>
+处在同一个小世界的 z-index 才能比较</li>
+<li>哪些不正交的属性可以创建它<br>
+需要记住的有 z-index/flex/opacity/transform</li>
+</ul>
+<h2 id="font-size5css-动画font"><font size=5>CSS 动画</font></h2>
+<h4 id="原理">原理</h4>
+<p>CSS 动画也叫作关键帧动画。通过<font color='red'>@keyframes </font>来定义关键帧。<br>
+CSS 里的帧和电影里图片一帧帧播放原理相似,开发者无需给出每一帧的定义。只需要定义一些关键的帧即可。因为其余帧浏览器会自动计算出来。</p>
+<h4 id="transform">transform</h4>
+<p>四个常用功能</p>
+<ul>
+<li>位移 translate</li>
+<li>缩放 scale</li>
+<li>旋转 rotate</li>
+<li>倾斜 skew</li>
+</ul>
+<h5 id="translate">translate</h5>
+<p>translate 的值有如下形式:</p>
+<ul>
+<li>单个长度/百分比值,比如</li>
+</ul>
+<pre><code class="language-css">/* 表示在二维平面内平移, 与声明了X轴和Y轴的平移一样 */
+translate: 100px;
+translate: 50%;
+</code></pre>
+<ul>
+<li>两个长度/百分比值 比如</li>
+</ul>
+<pre><code class="language-css">/* 表示在二维平面内分别按照指定X轴和Y轴的值进行的平移 */
+translate: 100px 200px;
+translate: 50% 105px;
+</code></pre>
+<ul>
+<li>三个长度/百分比值 如下</li>
+</ul>
+<pre><code class="language-css">/* 表示分别指定X轴、Y轴、Z轴的值进行三维平移 */
+translate: 50% 105px 5rem;
+</code></pre>
+<ul>
+<li>none<br>
+表示不应用平移效果</li>
+</ul>
+<h5 id="scale">scale</h5>
+<ul>
+<li><font color="#ff502c" size=2>scaleX(<number>) </font></li>
+<li><font color="#ff502c" size=2> scaleY(<number>)</font></li>
+<li><font color="#ff502c" size=2> scale(&lt;number&gt;, &lt;number&gt;?) </font></li>
+</ul>
+<h5 id="rotate">rotate</h5>
+<ul>
+<li><font color="#ff502c" size=2> rotate([&lt;angle&gt; | &lt;zero&gt;]) </font></li>
+<li><font color="#ff502c" size=2> rotateX([&lt;angle&gt; | &lt;zero&gt;]) </font> ,以 X 轴旋转</li>
+<li><font color="#ff502c" size=2> rotateY([&lt;angle&gt; | &lt;zero&gt;]) </font> ,以 Y 轴旋转</li>
+<li><font color="#ff502c" size=2> rotateZ([&lt;angle&gt; | &lt;zero&gt;]) </font> ,以 Z 轴旋转</li>
+<li><font color="#ff502c" size=2> rotate3d([&lt;angle&gt; | &lt;zero&gt;]) </font></li>
+</ul>
+<h4 id="transition-过渡">transition 过渡</h4>
+<h5 id="作用">作用</h5>
+<p>补充中间帧</p>
+<h5 id="语法">语法</h5>
+<ul>
+<li>transition: 属性名 时长 过渡方式 延迟</li>
+<li>transition: left 200ms linear</li>
+<li>transition: left 200ms, top 400ms 可以用逗号分隔两个不同的属性</li>
+<li>transition: all 200ms 可以用 all 代表所有属性</li>
+<li>过渡方式有：linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier | step-start | step-end | steps</li>
+</ul>
+<h4 id="animation">animation</h4>
+<h5 id="keyframes-完整语法">@keyframes 完整语法</h5>
+<ul>
+<li>一种写法是 from to</li>
+</ul>
+<pre><code class="language-css">@keyframes xxx {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+</code></pre>
+<ul>
+<li>另一种写法是百分数</li>
+</ul>
+<pre><code class="language-css">@keyframes xxx {
+  0% {
+    transform: none;
+  }
+  66.66% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(200px) translateY(100px);
+  }
+}
+</code></pre>
+<h5 id="animation-缩写写法">animation 缩写写法</h5>
+<p>animation: 时长 | 过渡方式 | 延迟 | 次数 | 方向 | 填充模式 | 是否暂停 | 动画名;</p>
+<ul>
+<li>时长：1s 或 1000ms</li>
+<li>过渡方式：跟 transition 取值一样</li>
+<li>次数：3 或者 2.4 或者 infinite</li>
+<li>方向：reverse | alternate | alternate-reverse</li>
+<li>填充模式：none | forwards | backwards | both</li>
+<li>是否暂停：paused | running</li>
+<li>以上所有属性都有对应的单独属性</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[HTML常用标签]]></title>
         <id>https://sandreams.github.io/post/html-chang-yong-biao-qian/</id>
