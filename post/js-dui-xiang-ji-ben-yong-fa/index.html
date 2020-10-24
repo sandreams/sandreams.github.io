@@ -2,20 +2,23 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>JavaScript的诞生 | Gridea</title>
+<title>JS对象基本用法 | Gridea</title>
 <link rel="shortcut icon" href="https://sandreams.github.io/favicon.ico?v=1603542855888">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://sandreams.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="JavaScript的诞生 | Gridea - Atom Feed" href="https://sandreams.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="JS对象基本用法 | Gridea - Atom Feed" href="https://sandreams.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="Javascript 的历史
+    <meta name="description" content="声明对象的两种语法
+let obj = {'name': 'fan'}
 
+最常用的写法，直接创建指定的对象
 
-诞生
-1995 年，布兰登艾克(Brendan Eich)在网景公司(Netscape)为浏览器开发了 JS 功能（设计时间为 10 天），是与 Java 搭配使用的辅助脚本语言并且语法上有些类似的，能够使..." />
+let obj = new Object({'name': 'fan'})
+
+最标准的写法，如果给定的值是null或 undefi..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -78,11 +81,11 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              JavaScript的诞生
+              JS对象基本用法
             </h2>
             <div class="post-info">
               <span>
-                2020-10-18
+                2020-10-24
               </span>
               <span>
                 3 min read
@@ -92,81 +95,109 @@
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h2 id="javascript-的历史">Javascript 的历史</h2>
+                <h3 id="声明对象的两种语法">声明对象的两种语法</h3>
+<h4 id="let-obj-name-fan">let obj = {'name': 'fan'}</h4>
 <ul>
-<li>
-<p>诞生<br>
-1995 年，布兰登艾克(Brendan Eich)在网景公司(Netscape)为浏览器开发了 JS 功能（设计时间为 10 天），是与 Java 搭配使用的辅助脚本语言并且语法上有些类似的，能够使得非专业的网页作者也能很快上手。JS 最初的命名为：Mocha，于 95 年底改名为 LiveScript，同年 12 月，Netscape Navigator 2.0 Beta 3 中部署时被重命名 JavaScript，当时网景公司与昇阳电脑公司组成的开发联盟为了让这门语言搭上 Java 这个编程语言“热词”，因此将其临时改名为 JavaScript，日后这成为大众对这门语言有诸多误解的原因之一。</p>
-<p>1996 年 11 月，网景公司向 ECMA 提交了语言标准，由于版权问题，JS 的语言标准叫做 ECMAScript。俗称 ES。他打击了 1996 年 8 月微软发布的 IE3 中的 JScript。</p>
-<p>\<div align=center> <img src="https://s2.d2scdn.com/u/dev065/2020/10/18/16030138438676941418122/260684-03e33171ff9fb38e.jpg" alt="这里写图片描述" loading="lazy"><br>
-Brendan Eich</p>
-</li>
+<li>最常用的写法，直接创建指定的对象</li>
 </ul>
-<p>十天内，他的设计思路是这样的：</p>
-<blockquote>
-<p>（1）借鉴 C 语言的基本语法；</p>
-<p>（2）借鉴 Java 语言的数据类型和内存管理；</p>
-<p>（3）借鉴 Scheme 语言，将函数提升到&quot;第一等公民&quot;（first class）的地位；</p>
-<p>（4）借鉴<a href="https://links.jianshu.com/go?to=http://en.wikipedia.org/wiki/Self_(programming_language)">Self 语言</a>，使用基于原型（prototype）的继承机制。</p>
-</blockquote>
-<p>所以，<strong>Javascript 语言实际上是两种语言风格的混合产物----（简化的）函数式编程+（简化的）面向对象编程。</strong> 这是由 Brendan Eich（函数式编程）与网景公司（面向对象编程）共同决定的。</p>
-<h2 id="javascript-的概述">Javascript 的概述</h2>
-<h3 id="组成">组成</h3>
-<p>一般来说，完整的 JavaScript 包括以下几个部分：</p>
-<pre><code>1. ECMAScript，描述了该语言的语法和基本对象
-ECMAScript 于 1997 年 6 月诞生了第一版。
-1999 年 12 月诞生了第三版（IE6 最流行的版本）
-第四版流产
-2009 年 2 月发布了第五版
-2015 年 6 月发布了第六版
-此后的每一年都发布一个新版本，并且以年份命名版本号
+<h4 id="let-obj-new-objectname-fan">let obj = new Object({'name': 'fan'})</h4>
+<ul>
+<li>最标准的写法，如果给定的值是<code>null</code>或 <code>undefined</code>，它会创建并返回一个空对象。</li>
+<li>如果给定值是一个已存在的对象，则会返回这个已经存在的值(相同地址)</li>
+</ul>
+<h4 id="小知识">小知识</h4>
+<ul>
+<li>键名是字符串,不是标识符</li>
+<li>引号可以省略，省略后就只能写标识符</li>
+<li><strong>就算引号省略了，键名也还是字符串</strong></li>
+</ul>
+<pre><code class="language-javascript">// 下面的代码说明 不管是数字、标识符，还是表达式最后都会转换成字符串的键值
+let obj1 = {};
+let obj2 = {};
+let obj3 = {};
 
-2. 文档对象模型（DOM），描述处理网页内容的方法和接口
-3. 浏览器对象模型（BOM），描述与浏览器进行交互的方法和接口
+const intkey = 1;
+const strkey = &quot;1&quot;;
+obj1[intkey] = 2;
+obj2[strkey] = 2;
+obj3[4 / 2 - 1] = 2;
+console.log(Object.keys(obj1));
+// output [&quot;1&quot;]
+console.log(Object.keys(obj2));
+// output [&quot;1&quot;]
+console.log(Object.keys(obj3));
+// output[&quot;1&quot;]
 </code></pre>
-<h3 id="基本特点">基本特点</h3>
-<p>JavaScript 的基本特点如下：</p>
-<pre><code>1. 是一种解释性脚本语言（代码不进行预编译）。
-2. 主要用来向 HTML 页面添加交互行为。
-3. 可以直接嵌入 HTML 页面，但写成单独的 js 文件有利于结构和行为的分离。
+<h3 id="如何删除对象的属性">如何删除对象的属性</h3>
+<ul>
+<li>删除对象属性的两种方法
+<ol>
+<li>delete obj.xxx</li>
+<li>delete obj['xxx']</li>
+</ol>
+</li>
+<li>检查对象中是否存在某属性<br>
+<code>'xxx' in obj true</code> true 表示存在 false 表示不存在</li>
+<li>需要注意的地方<br>
+<code>obj['xxx'] === undefined</code>不代表 obj 里不存在 xxx 属性，当 xxx 的属性值为 undefined 时也能返回同样的结果</li>
+</ul>
+<h3 id="如何查看对象的属性">如何查看对象的属性</h3>
+<ul>
+<li>查看自身所有属性<br>
+<code>Object.keys(obj)</code></li>
+<li>查看自身+共有属性<br>
+<code>console.dir(obj)</code><br>
+或者自己依次用 <code>Object.keys</code> 打印出 <code>obj.__proto__</code></li>
+<li>判断一个属性是自身还是共有的<br>
+<code>obj.hasOwnProperty('strkey')</code></li>
+</ul>
+<h3 id="如何修改或增加对象的属性">如何修改或增加对象的属性</h3>
+<pre><code class="language-javascript">//定义之后增加对象的属性
+let obj = {
+  name: &quot;xiaoxiao&quot;,
+};
+obj.age = 18;
+
+//定义之后修改对象属性的属性值
+obj.name = &quot;xiao&quot;;
+obj.age = &quot;20&quot;;
+
+//或者批量一起修改 可以用Object提供的assign属性
+Object.assign(obj, { name: &quot;xiaoxiao&quot;, age: 20 });
 </code></pre>
-<h3 id="使用场景">使用场景</h3>
-<p>JavaScript 常用来完成以下任务：</p>
-<pre><code>1. 嵌入动态文本于 HTML 页面
-2. 对浏览器事件作出响应
-3. 读写 HTML 元素
-4. 在数据被提交到服务器之前验证数据
-5. 检测访客的浏览器信息
-6. 控制 cookies，包括创建和修改等。
+<h3 id="name-in-obj-和-objhasownpropertyname-的区别">‘name’ in obj 和 obj.hasOwnProperty(‘name’) 的区别</h3>
+<p>两者区别在于自身属性和共有属性,我们在查看和删除的时候</p>
+<pre><code class="language-javascript">let obj = {
+  name: &quot;xiaoxiao&quot;,
+  age: 18,
+};
+//我们知道obj有个自身属性,它还有一个隐藏的共有属性
+
+&quot;name&quot; in obj; //问name是属于obj的自身属性或共有属性吗？答案是true
+
+obj.hasOwnProperty(&quot;name&quot;); //问name自身属性吗？ 答案是true
 </code></pre>
-<h2 id="javascript-的-10-个设计缺陷">Javascript 的 10 个设计缺陷</h2>
-<blockquote>
-<p>1. 不适合开发大型程序</p>
-<p>2. 非常小的标准库</p>
-<p>3. null 和 undefined</p>
-<p>4. 全局变量难以控制</p>
-<p>5. 自动插入行尾分号</p>
-<p>6. 加号运算符</p>
-<p>7. NaN</p>
-<p>8. 数组和对象的区分</p>
-<p>9. == 和 ===</p>
-<p>10. 基本类型的包装对象</p>
-</blockquote>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#javascript-%E7%9A%84%E5%8E%86%E5%8F%B2">Javascript 的历史</a></li>
-<li><a href="#javascript-%E7%9A%84%E6%A6%82%E8%BF%B0">Javascript 的概述</a>
+<li>
 <ul>
-<li><a href="#%E7%BB%84%E6%88%90">组成</a></li>
-<li><a href="#%E5%9F%BA%E6%9C%AC%E7%89%B9%E7%82%B9">基本特点</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">使用场景</a></li>
+<li><a href="#%E5%A3%B0%E6%98%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%A4%E7%A7%8D%E8%AF%AD%E6%B3%95">声明对象的两种语法</a>
+<ul>
+<li><a href="#let-obj-name-fan">let obj = {'name': 'fan'}</a></li>
+<li><a href="#let-obj-new-objectname-fan">let obj = new Object({'name': 'fan'})</a></li>
+<li><a href="#%E5%B0%8F%E7%9F%A5%E8%AF%86">小知识</a></li>
 </ul>
 </li>
-<li><a href="#javascript-%E7%9A%84-10-%E4%B8%AA%E8%AE%BE%E8%AE%A1%E7%BC%BA%E9%99%B7">Javascript 的 10 个设计缺陷</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7">如何删除对象的属性</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7">如何查看对象的属性</a></li>
+<li><a href="#%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E6%88%96%E5%A2%9E%E5%8A%A0%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7">如何修改或增加对象的属性</a></li>
+<li><a href="#name-in-obj-%E5%92%8C-objhasownpropertyname-%E7%9A%84%E5%8C%BA%E5%88%AB">‘name’ in obj 和 obj.hasOwnProperty(‘name’) 的区别</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -179,9 +210,9 @@ ECMAScript 于 1997 年 6 月诞生了第一版。
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://sandreams.github.io/post/qian-xi-url/">
+            <a href="https://sandreams.github.io/post/js-de-ji-ben-yu-fa/">
               <h3 class="post-title">
-                浅析URl
+                JS的基本语法
               </h3>
             </a>
           </div>

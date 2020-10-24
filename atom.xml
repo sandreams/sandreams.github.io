@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sandreams.github.io</id>
     <title>Gridea</title>
-    <updated>2020-10-21T10:34:42.864Z</updated>
+    <updated>2020-10-24T12:34:24.219Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sandreams.github.io"/>
     <link rel="self" href="https://sandreams.github.io/atom.xml"/>
@@ -10,6 +10,96 @@
     <logo>https://sandreams.github.io/images/avatar.png</logo>
     <icon>https://sandreams.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[JS对象基本用法]]></title>
+        <id>https://sandreams.github.io/post/js-dui-xiang-ji-ben-yong-fa/</id>
+        <link href="https://sandreams.github.io/post/js-dui-xiang-ji-ben-yong-fa/">
+        </link>
+        <updated>2020-10-24T12:33:23.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="声明对象的两种语法">声明对象的两种语法</h3>
+<h4 id="let-obj-name-fan">let obj = {'name': 'fan'}</h4>
+<ul>
+<li>最常用的写法，直接创建指定的对象</li>
+</ul>
+<h4 id="let-obj-new-objectname-fan">let obj = new Object({'name': 'fan'})</h4>
+<ul>
+<li>最标准的写法，如果给定的值是<code>null</code>或 <code>undefined</code>，它会创建并返回一个空对象。</li>
+<li>如果给定值是一个已存在的对象，则会返回这个已经存在的值(相同地址)</li>
+</ul>
+<h4 id="小知识">小知识</h4>
+<ul>
+<li>键名是字符串,不是标识符</li>
+<li>引号可以省略，省略后就只能写标识符</li>
+<li><strong>就算引号省略了，键名也还是字符串</strong></li>
+</ul>
+<pre><code class="language-javascript">// 下面的代码说明 不管是数字、标识符，还是表达式最后都会转换成字符串的键值
+let obj1 = {};
+let obj2 = {};
+let obj3 = {};
+
+const intkey = 1;
+const strkey = &quot;1&quot;;
+obj1[intkey] = 2;
+obj2[strkey] = 2;
+obj3[4 / 2 - 1] = 2;
+console.log(Object.keys(obj1));
+// output [&quot;1&quot;]
+console.log(Object.keys(obj2));
+// output [&quot;1&quot;]
+console.log(Object.keys(obj3));
+// output[&quot;1&quot;]
+</code></pre>
+<h3 id="如何删除对象的属性">如何删除对象的属性</h3>
+<ul>
+<li>删除对象属性的两种方法
+<ol>
+<li>delete obj.xxx</li>
+<li>delete obj['xxx']</li>
+</ol>
+</li>
+<li>检查对象中是否存在某属性<br>
+<code>'xxx' in obj true</code> true 表示存在 false 表示不存在</li>
+<li>需要注意的地方<br>
+<code>obj['xxx'] === undefined</code>不代表 obj 里不存在 xxx 属性，当 xxx 的属性值为 undefined 时也能返回同样的结果</li>
+</ul>
+<h3 id="如何查看对象的属性">如何查看对象的属性</h3>
+<ul>
+<li>查看自身所有属性<br>
+<code>Object.keys(obj)</code></li>
+<li>查看自身+共有属性<br>
+<code>console.dir(obj)</code><br>
+或者自己依次用 <code>Object.keys</code> 打印出 <code>obj.__proto__</code></li>
+<li>判断一个属性是自身还是共有的<br>
+<code>obj.hasOwnProperty('strkey')</code></li>
+</ul>
+<h3 id="如何修改或增加对象的属性">如何修改或增加对象的属性</h3>
+<pre><code class="language-javascript">//定义之后增加对象的属性
+let obj = {
+  name: &quot;xiaoxiao&quot;,
+};
+obj.age = 18;
+
+//定义之后修改对象属性的属性值
+obj.name = &quot;xiao&quot;;
+obj.age = &quot;20&quot;;
+
+//或者批量一起修改 可以用Object提供的assign属性
+Object.assign(obj, { name: &quot;xiaoxiao&quot;, age: 20 });
+</code></pre>
+<h3 id="name-in-obj-和-objhasownpropertyname-的区别">‘name’ in obj 和 obj.hasOwnProperty(‘name’) 的区别</h3>
+<p>两者区别在于自身属性和共有属性,我们在查看和删除的时候</p>
+<pre><code class="language-javascript">let obj = {
+  name: &quot;xiaoxiao&quot;,
+  age: 18,
+};
+//我们知道obj有个自身属性,它还有一个隐藏的共有属性
+
+&quot;name&quot; in obj; //问name是属于obj的自身属性或共有属性吗？答案是true
+
+obj.hasOwnProperty(&quot;name&quot;); //问name自身属性吗？ 答案是true
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[JS的基本语法]]></title>
         <id>https://sandreams.github.io/post/js-de-ji-ben-yu-fa/</id>
