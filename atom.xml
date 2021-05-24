@@ -2,14 +2,165 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sandreams.github.io</id>
     <title>Gridea</title>
-    <updated>2020-10-24T12:34:24.219Z</updated>
+    <updated>2021-05-24T09:16:09.411Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sandreams.github.io"/>
     <link rel="self" href="https://sandreams.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
     <logo>https://sandreams.github.io/images/avatar.png</logo>
     <icon>https://sandreams.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Gridea</rights>
+    <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[jQuery设计思想与常见方法]]></title>
+        <id>https://sandreams.github.io/post/jquery-design/</id>
+        <link href="https://sandreams.github.io/post/jquery-design/">
+        </link>
+        <updated>2021-05-24T09:13:10.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="1-jquery-如何获取元素">1. jQuery 如何获取元素</h2>
+<hr>
+<p>一. 思路：<br>
+利用选择表达式来选择某个网页元素，得到被选中的元素，然后对其进行某种操作</p>
+<p>二. 创建jQuery对象：<br>
+<code>$(selector)</code></p>
+<p>三. 选择表达式selector：<br>
+selector可以是<u>CSS选择器：</u></p>
+<pre><code class="language-javascript">$(document) //选择整个文档对象
+
+$('#myid') //选择ID为myId的网页元素
+
+$('myClass') // 选择class为myClass的div元素
+
+$('ul &gt;li:first') // 选择ul下的最后一个li元素
+</code></pre>
+<p>也可以是jQuery特有的表达式：</p>
+<pre><code class="language-javascript">$('a:first') //选择网页中第一个a元素
+
+$('div:gt(2)') // 选择所有的div元素，除了前三个
+
+$('div:animated') // 选择当前处于动画状态的div元素
+</code></pre>
+<h2 id="2-jquery-的链式操作是怎样的">2. jQuery 的链式操作是怎样的</h2>
+<hr>
+<p>一. 原理</p>
+<blockquote>
+<p>每一步的jQuery操作，返回的都是一个jQuery对象，所以不同操作可以连在一起。</p>
+</blockquote>
+<p>即每次调用jQuery的api时都会返回这个jQuery对象本身，方便接着进行调用，如下所示：</p>
+<pre><code class="language-javascript">$('div')
+.addClass('newclass')
+.find('.child')
+.each(fn)
+.end() // 返回到find('.child')那一步
+.html('here')
+</code></pre>
+<h2 id="3-jquery-如何创建元素">3. jQuery 如何创建元素</h2>
+<hr>
+<p>jQuery创建dom元素主要分如下几部：</p>
+<ol>
+<li>创建元素element</li>
+<li>对创建的element进行相关设置(如设置属性、样式和事件)，此时页面的dom树上还不存在该元素</li>
+<li>加入到文档中<br>
+示例如下：</li>
+</ol>
+<pre><code class="language-html">&lt;!-- html --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;list&quot;&gt;
+    &lt;ul&gt;
+      &lt;li&gt;1&lt;/li&gt;
+      &lt;li&gt;2&lt;/li&gt;
+      &lt;li&gt;3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  &lt;script src=&quot;//code.jquery.com/jquery-2.1.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="language-javascript">//  css
+// .border {
+//   border: 1px solid black;
+// }
+// js
+const $li = $(`&lt;li&gt;4&lt;/li&gt;`)
+const $l2 = $li.addClass('border')
+    .attr('name', 'li')
+    .on('click', () =&gt; {
+        console.log('i am fourth element')
+    })
+    .appendTo($('.list&gt;ul'))
+</code></pre>
+<p>输出结果：<br>
+<img src="https://s2.d2scdn.com/u/dev065/2021/5/24/16218436461413583076026/Snipaste_2021-05-24_15-17-47.png" alt="jQuery创建元素结果" loading="lazy"></p>
+<h2 id="4-jquery-如何移动元素">4. jQuery 如何移动元素</h2>
+<hr>
+<blockquote>
+<p>jQuery提供两组移动元素的方法来操作元素在网页中的位置移动。一组方法是直接移动该元素，另一组方法是移动其他元素，使得目标元素达到我们想要的位置。</p>
+</blockquote>
+<p>还是以上面例子为例，这里操作将内容为 '4' 的节点插入到内容为 '2' 的后面。以下两种方法均可以实现该效果：</p>
+<pre><code class="language-javascript">$l2.insertAfter($('.list ul&gt;li:nth-child(2)'))
+</code></pre>
+<p>或</p>
+<pre><code class="language-javascript">($('.list ul&gt;li:nth-child(2)')).after($l2)
+</code></pre>
+<p>需要注意的是，两种操作返回的jQuery对象是不同的。第一种返回的是内容为 '4' 的元素，第二种返回的是内容为 '2' 的元素。最终选用哪种方法取决于后需要对哪个元素进行操作。<br>
+使用这种模式的操作方法，一共有四对：</p>
+<blockquote>
+<p>.insertAfter()和.after()：在现存元素的外部，从后面插入元素 <br><br>
+.insertBefore()和.before()：在现存元素的外部，从前面插入元素 <br><br>
+.appendTo()和.append()：在现存元素的内部，从后面插入元素<br><br>
+.prependTo()和.prepend()：在现存元素的内部，从前面插入元素</p>
+</blockquote>
+<h2 id="5-jquery-如何修改元素的属性">5. jQuery 如何修改元素的属性</h2>
+<hr>
+<p>.attr()方法可以获取匹配的元素集合中的第一个元素的属性的值  或 设置每一个匹配元素的一个或多个属性。<br>
+调用方法及参数如下：<br>
+<b>Contents:</b></p>
+<ul>
+<li><i>获取匹配的元素集合中的第一个元素的属性的值。</i>
+<ul>
+<li>.attr( attributeName )<br>
+<b>attributeName</b><br>
+类型: <i>String</i><br>
+<font size=2 color='#999'>说明：要获取的属性名称</font></li>
+</ul>
+</li>
+<li><i>设置每一个匹配元素的一个或多个属性。</i>
+<ul>
+<li>
+<p>attr( attributeName, value )<br>
+<b>attributeName</b><br>
+类型: <i>String</i><br>
+<font size=2 color='#999'>说明：要获取的属性名称</font><br>
+<b>value</b><br>
+类型: <i>String,Number</i><br>
+<font size=2 color='#999'>说明：这个属性设置的值</font></p>
+</li>
+<li>
+<p>attr( attributes )<br>
+<b>attributes</b><br>
+类型: <i>PlainObject</i><br>
+<font size=2 color='#999'>说明：一个属性 - 值集合对象。</font></p>
+</li>
+<li>
+<p>.attr( attributeName, function(index, attr) )<br>
+<b>attributeName</b><br>
+类型: <i>String</i><br>
+<font size=2 color='#999'>说明：要获取的属性名称</font><br>
+<b>function(index, attr)</b><br>
+类型: <i>Function()</i><br>
+<font size=2 color='#999'>说明：这个函数返回用来设置的值，this指向当前的元素。接收index 参数表示元素在匹配集合中的索引位置和html 参数表示元素上原来的 HTML 内容。</font></p>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[JS对象基本用法]]></title>
         <id>https://sandreams.github.io/post/js-dui-xiang-ji-ben-yong-fa/</id>
